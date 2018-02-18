@@ -1,0 +1,13 @@
+Package: DTCsurvey
+Title: Collection of functions for analysis of my dissertation survey
+Version: 0.0.0.9000
+Authors@R: person("Sarah", "Nelson", email = "sarahcn@uw.edu", role = c("aut", "cre"))
+Description: Collection of functions for analysis of my dissertation survey on DTC genetic testing customers' use of third-party interpretation tools. To include functions for plotting and analysis.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports:
+    dplyr,
+    ggplot2,
+    reshape2
