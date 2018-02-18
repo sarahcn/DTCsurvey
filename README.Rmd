@@ -23,7 +23,8 @@ Th DTCsurvey package contains a set of functions I created to facilitate a surve
 Here is an example of the `b2b_barplot` function which creates a back to back barplot of Likert-like responses (e.g. levels of agreement) to a cluster of survey items.
 
 ```{r ex_b2b_parplot}
-library(DTCsurvey)
+#library(DTCsurvey)
+devtools::load_all()
 library(ggplot2)
 library(reshape2)
 library(dplyr)
