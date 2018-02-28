@@ -4,7 +4,7 @@
 \alias{b2b_barplot}
 \title{Back to Back Barplot}
 \usage{
-b2b_barplot(raw = dat, group_var = NULL, response_levels = 4:1,
+b2b_barplot(raw = dat, group_var = NULL, response_levels = c(4:3, 1:2),
   response_labels = c("strongly disagree", "disagree", "strongly agree",
   "agree"), response_colors = c(`strongly disagree` = "#ca0020", disagree =
   "#f4a582", agree = "#92c5de", `strongly agree` = "#0571b0"),
@@ -20,7 +20,7 @@ b2b_barplot(raw = dat, group_var = NULL, response_levels = 4:1,
 
 \item{{response_labels}}{{Labels for responses in same order as \code{response_levels}}}
 
-\item{{response_colors}}{{Vector assinging each \code{response_labels} value to a color. 
+\item{{response_colors}}{{Vector assinging each \code{response_labels} value to a color.
 Default assigns shades of red to left hand side variables, shades of blue to right hand side variables}}
 
 \item{{rightside_resposes}}{{Vector of \code{response_levels} to be plotted on right hand side}}
@@ -38,7 +38,7 @@ ggplot object to which other plotting attributes can easily be added (e.g., titl
 Function to make back to back bar plots as typically desired for survey data.
 }
 \details{
-Input data frame should be limited to the variables you want plotted, 
+Input data frame should be limited to the variables you want plotted,
 typically likert-like scales (level of agreement) or yes/no questions.
 The mapping between response values (e.g., 1,2,3,4) and response labels ("strongly agree","agree", etc.)
 is given in function arguments.
@@ -46,7 +46,6 @@ NOte only a series of statements with the same coding can be plotted at once.
 If all response value are provided to \code{rightside_responses}, typical (not back to back) barplot can be created.
 }
 \examples{
- 
 library(DTCsurvey)
 library(ggplot2)
 library(reshape2)

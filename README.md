@@ -16,14 +16,6 @@ devtools::load_all()
 library(ggplot2)
 library(reshape2)
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
  
 # with no grouping
 dat <- data.frame(matrix(sample(1:4,60, replace=TRUE), nrow=20,ncol=3))
