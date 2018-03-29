@@ -59,6 +59,7 @@ b2b_barplot(raw=dat)
 # with grouping
 dat$sex <- c(rep("M",times=10), rep("F",times=10))
 b2b_barplot(raw=dat, group_var = "sex")
+
 }
 \seealso{
 https://stackoverflow.com/questions/18158461/grouped-bar-plot-in-ggplot

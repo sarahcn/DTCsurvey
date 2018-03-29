@@ -38,6 +38,9 @@
 #' # with grouping
 #' dat$sex <- c(rep("M",times=10), rep("F",times=10))
 #' b2b_barplot(raw=dat, group_var = "sex")
+#'
+#' @rdname b2b_barplot
+#' @export
 
 b2b_barplot <- function(raw = dat,
                         group_var = NULL,
