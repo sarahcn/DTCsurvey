@@ -6,12 +6,12 @@
 #' typically likert-like scales (level of agreement) or yes/no questions.
 #' The mapping between response values (e.g., 1,2,3,4) and response labels ("strongly agree","agree", etc.)
 #' is given in function arguments.
-#' NOte only a series of statements with the same coding can be plotted at once.
+#' Note only a series of statements with the same coding can be plotted at once.
 #' If all response value are provided to \code{rightside_responses}, typical (not back to back) barplot can be created.
 #'
 #' @param{raw} {Input raw data frame.}
 #' @param{group_var} {Optional variable by which to group, will create facet wrapped plot}
-#' @param{response_levels} {Values in data frame, e.g. 1:4}
+#' @param{response_levels} {Values in data frame in the order you want them plotted left to right, e.g. 1:4}
 #' @param{response_labels} {Labels for responses in same order as \code{response_levels}}
 #' @param{response_colors} {Vector assinging each \code{response_labels} value to a color.
 #' Default assigns shades of red to left hand side variables, shades of blue to right hand side variables}
@@ -44,8 +44,8 @@
 
 b2b_barplot <- function(raw = dat,
                         group_var = NULL,
-                        response_levels = c(4:3, 1:2),
-                        response_labels = c("strongly disagree", "disagree", "strongly agree", "agree"),
+                        response_levels = c(4:1),
+                        response_labels = c("strongly disagree", "disagree", "agree", "strongly agree"),
                         response_colors = c(
                           "strongly disagree" = "#ca0020",
                           "disagree" = "#f4a582",
@@ -86,7 +86,8 @@ b2b_barplot <- function(raw = dat,
   }
 
   # convert to ordered factors
-  data.m$variable.f <-  factor(data.m$variable, levels = response_levels, labels = response_labels, ordered = TRUE)
+  data.m$variable.f <-  factor(data.m$variable, levels = response_levels,
+                               labels = response_labels, ordered = TRUE)
   data.m$Names.f <- factor(data.m$Names, levels = names_levels, ordered = TRUE)
 
   # build plot
@@ -94,6 +95,7 @@ b2b_barplot <- function(raw = dat,
     geom_bar(
       data = subset(data.m, variable %in% rightside_responses),
       aes(y = value, fill = variable.f),
+      position = position_stack(reverse = TRUE),
       stat = "identity"
     ) +
     geom_bar(
